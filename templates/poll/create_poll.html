@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Poll App
+{% endblock title %}
+
+{% block body_authenticate %}
+<form action={% url 'createpoll' %} method='POST'>
+    {% csrf_token %}
+    {{form}}
+    <input type='submit' value="Create Poll">
+</form>
+{% endblock body_authenticate %}

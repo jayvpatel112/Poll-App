@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}
+home
+{% endblock title %}
+
+{% block body_authenticate %}
+
+{% for que in  questions%}
+
+    <form action={% url 'home' %} method="POST">
+        {% csrf_token %}
+    Que:{{que.question_no}} {{que.question}}<input type="text" name="info" value="{{que.question_no}} {{que.current_user_name}}" readonly>
+    <li>
+        <input type="radio" name="answer" value="a" id="a" class="answer">
+        <label for="a" id="a_text">{{que.option1}}</label>
+    </li>
+
+    <li>
+        <input type="radio" name="answer" value="b" id="b" class="answer">
+        <label for="b" id="b_text">{{que.option2}}</label>
+    </li>
+
+    <li>
+        <input type="radio" name="answer" value="c" id="c" class="answer">
+        <label for="c" id="c_text">{{que.option3}}</label>
+    </li>
+
+    <li>
+        <input type="radio" name="answer" value="d" id="d" class="answer">
+        <label for="d" id="d_text">{{que.option4}}</label>
+    </li>
+
+    <input type='submit' value="Poll Answer">
+    </form>
+    <br>
+{% endfor %}
+
+{% endblock body_authenticate %}

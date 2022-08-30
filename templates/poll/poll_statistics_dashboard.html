@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+dashboard
+{% endblock title %}
+
+{% block body_authenticate %}
+<table>
+    <tr>
+    <th>username</th>
+    <th>question_no</th>
+    <th>answer1_count</th>
+    <th>answer2_count</th>
+    <th>answer3_count</th>
+    <th>answer4_count</th>
+    <th>total_answer</th>
+    </tr>
+{% for data in content %}
+<tr>
+    <td>{{data.username}}</td>
+    <td>{{data.question_no}}</td>
+    <td>{{data.answer1_count}}</td>
+    <td>{{data.answer2_count}}</td>
+    <td>{{data.answer3_count}}</td>
+    <td>{{data.answer4_count}}</td>
+    <td>{{data.total_answer}}</td>
+</tr>
+{% endfor %}
+</table>
+{% endblock body_authenticate%}

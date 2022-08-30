@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Profile
+{% endblock title %}
+
+{% block body_authenticate %}
+
+{{ user.first_name }} {{ user.last_name }}<br>
+{{ user.email }}<br>
+
+{% for que in  questions%}
+
+Que:    {{que.question}}<br>
+Option1:    {{que.option1}}<br>
+Option2:    {{que.option2}}<br>
+Option3:    {{que.option3}}<br>
+Option4:    {{que.option4}}<br>
+<br>
+
+{% endfor %}
+
+{% endblock body_authenticate %}
